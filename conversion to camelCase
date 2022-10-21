@@ -1,0 +1,11 @@
+function toCamelCase(str){
+  function ttt(str){
+      function uppercasefunction (ourtext) {
+          return ourtext.toUpperCase();
+      }
+         return str.replace(/[_|-][a-w]/g, uppercasefunction) 
+              }
+let b = ttt(str)
+b = b.replace(/[_|-]/g, '');
+return b
+            }
