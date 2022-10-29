@@ -1,0 +1,23 @@
+function countPositivesSumNegatives(input) {
+    // your code here
+    let positivenumbers = 0
+      let negativenumbers = 0
+      if (input == null) {
+        return []
+      }
+      if (input.length ==0){
+        return []
+      }
+      else {
+      for (let i=0; i<=input.length; i++) {
+          if (input[i]>0) {
+              positivenumbers+=1
+          }
+          if (input[i]<0) {
+              negativenumbers= negativenumbers + input[i]
+          }
+      }
+      return ([positivenumbers,negativenumbers])
+    }
+}
+  console.log (countPositivesSum
