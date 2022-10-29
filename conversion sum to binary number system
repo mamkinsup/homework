@@ -1,0 +1,16 @@
+function addBinary(a,b) {
+    let sum=a+b
+    function rekursia (sum) {
+      if (sum/2 == 0.5) {
+        return 1;
+     }
+     else {
+    let newArray = [rekursia(parseInt(sum/2))]
+    newArray.push(sum%2);
+    return newArray;
+     }
+    }
+    let c = rekursia(sum).toString()
+    let f = c.replace(/,/g,'')
+    return (Number (f))
+ }
