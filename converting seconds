@@ -1,0 +1,137 @@
+function formatDuration (seconds) {
+const minute = 60
+const hours = 3600
+const days = 86400
+const years = 31536000
+let item=''
+if (seconds == 0) {
+    return 'now'
+}
+if (seconds >= years) {
+    let Newyears = Math.floor(seconds/years)
+    seconds=seconds-Newyears*years
+    if (Newyears>1) {
+        item+=Newyears+' years,'
+    }
+    else {
+        item+=Newyears+' year,' 
+    }
+  
+}
+if (seconds >= days) {
+    let Newdays = Math.floor(seconds/days)
+    seconds=seconds-Newdays*days
+    if (item.length>0) {
+            if (Newdays>1) {
+                if (seconds==0) {
+                    item+=' and '+Newdays+ ' days '
+                }
+                else {
+                item+=' '+Newdays+ ' days,'
+                }
+            }
+            else {
+                if (seconds==0) {
+                    item+=' and '+Newdays+ ' day '
+                }
+                else {
+                item+=' '+Newdays+ ' day,'
+                } 
+            }
+        }
+    else {
+        if (Newdays>1) {
+            item+=Newdays+ ' days,'
+        }
+        else {
+            item+=Newdays+' day,' 
+        }
+
+    }
+        
+}
+if (seconds >=hours) {
+    let Newhours = Math.floor(seconds/hours)
+    seconds=seconds-Newhours*hours
+    if (item.length>0) {
+        if (seconds==0) {
+            if (Newhours>1) {
+                item+=' and '+Newhours + ' hours '
+            }
+            else {
+                item+=' and '+Newhours+' hour ' 
+            }
+        }
+        else {
+        if (Newhours>1) {
+            item+=' '+Newhours + ' hours,'
+        }
+        else {
+            item+=' '+Newhours+' hour,' 
+        }  
+        }
+    }
+    else {
+        if (Newhours>1) {
+            item+=Newhours + ' hours,'
+        }
+        else {
+            item+=Newhours+' hour,' 
+        }
+    }  
+}
+if (seconds>=minute) {
+    let Newminute = Math.floor(seconds/minute)
+    seconds=seconds-Newminute*minute
+    if (item.length>0) {
+        if (seconds == 0) {
+            if (Newminute>1) {
+                item+=' and '+Newminute+ ' minutes '
+            }
+            else {
+                item+=' and '+Newminute+' minute ' 
+            }
+        }
+        else {
+            if (Newminute>1) {
+                item+=' '+Newminute+ ' minutes,'
+            }
+            else {
+                item+=' '+Newminute+' minute,' 
+            }
+        }
+    }
+        
+    else {
+        if (Newminute>1) {
+            item+=Newminute+ ' minutes,'
+        }
+        else {
+            item+=Newminute+' minute,' 
+        }
+    }
+    
+    
+}
+if (seconds<minute && seconds>0) {
+    if (item.length >0){
+        if (seconds>1) {
+            item+=' and '+seconds+ ' seconds,'
+        }
+        else {
+            item+=' and '+seconds+ ' second,'
+        }
+    }
+    else {
+        if (seconds>1) {
+            item+=seconds+ ' seconds '
+        }
+        else {
+            item+=seconds+ ' second '
+        }
+    }
+
+}
+return item.slice(0,-1).replace(/, and/g, ' and')
+}
+console.log(formatDuration(132030240))
